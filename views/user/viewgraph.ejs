@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <a class="navbar-brand" href="/dashboard/<%= userId %>">Dashboard</a>
+
+        </ul>
+
+        <div class="dropdown ">
+            <img src="/images/photo.jpg" class="rounded-circle shadow-4 dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown"  style="width: 40px;"
+            alt="Avatar"  />
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/viewProfile/<%= userId %>">My Profile</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
+        </div>
+
+    </div>
+</nav>
+
+        <div style="width: 100vw; height: 100vh;">
+        <canvas id="myChart" ></canvas>
+        </div>
+
+  
+
+  <script>
+    const t = `<%- JSON.stringify(transaction) %>`
+    const tr = JSON.parse(t)
+    console.log(tr);
+
+    const monthAmount = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    for (let i = 0; i < tr.length; i++) {
+        let month = new Date(tr[i].date).getMonth();
+
+        monthAmount[month] += parseFloat(tr[i].amount)
+    }
+
+      const xMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const yAmount = monthAmount
+      chartIt();
+      function chartIt(){
+        const ctx = document.getElementById('myChart');
+        new Chart(ctx, {
+          type: 'line',
+          
+          data: {
+            
+            labels: xMonths,
+            datasets: [{
+              label: 'Transaction Expense Graph',
+              data: yAmount,
+              borderWidth: 1,
+              
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+              
+            }
+          }
+        });
+      }
+  </script>
+
