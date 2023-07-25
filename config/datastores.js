@@ -53,7 +53,7 @@ module.exports.datastores = {
     adapter: 'sails-mongo',
    // url: 'mongodb://durvab:T35Td3Fi4fO1AwA1MkKK9b68@15.206.7.200:28017/durvab?authSource=admin'
    // url:   'mongodb://durvarbanthia:durvarbanthia@ac-tasdsut-shard-00-00.exyyoqi.mongodb.net:27017,ac-tasdsut-shard-00-01.exyyoqi.mongodb.net:27017,ac-tasdsut-shard-00-02.exyyoqi.mongodb.net:27017/?ssl=true&replicaSet=atlas-7dksa4-shard-0&authSource=admin&retryWrites=true&w=majority'
-      url:   'mongodb://localhost:27017/expense-manager'
+    url:   'mongodb://durvarbanthia:durvarbanthia@ac-tasdsut-shard-00-00.exyyoqi.mongodb.net:27017,ac-tasdsut-shard-00-01.exyyoqi.mongodb.net:27017,ac-tasdsut-shard-00-02.exyyoqi.mongodb.net:27017/expense-manager?ssl=true&replicaSet=atlas-7dksa4-shard-0&authSource=admin&retryWrites=true&w=majority'
   },
 
 
